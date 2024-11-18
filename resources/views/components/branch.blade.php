@@ -1,22 +1,15 @@
 
 <x-layouts.main>
     <!-- Hero Start -->
-    <section class="relative mt-20">
-        <div class="container-fluid md:mx-4 mx-2">
-            <div class="relative pt-40 pb-52 table w-full rounded-2xl shadow-md overflow-hidden" id="home">
-                <div class="absolute inset-0 bg-black/60"></div>
-
-                <div class="container relative">
-                    <div class="grid grid-cols-1">
-                        <div class="md:text-start text-center">
-                            <h1 class="font-bold text-white lg:leading-normal leading-normal text-4xl lg:text-5xl mb-6">We will help you find <br> your <span class="text-green-600">Wonderful</span> home</h1>
-                            <p class="text-white/70 text-xl max-w-xl">A great plateform to buy, sell and rent your properties without any agent or commisions.</p>
-                        </div>
-                    </div><!--end grid-->
-                </div><!--end container-->
-            </div>
-        </div><!--end Container-->
+    <section class="relative mt-20 table w-full py-32 lg:py-36 bg-[url('/public/assets/images/bg/05.jpg')] bg-no-repeat bg-center bg-cover">
+        <div class="absolute inset-0 bg-black opacity-80"></div>
+        <div class="container relative">
+            <div class="grid grid-cols-1 text-center mt-10">
+                <h3 class="font-bold text-white lg:leading-normal leading-normal text-4xl lg:text-5xl mb-6">Biz sizga xonadoshlar va ijarga uy topishda  <br> yaqindan yordam beramiz</h3>
+            </div><!--end grid-->
+        </div><!--end container-->
     </section><!--end section-->
+
     <!-- Hero End -->
 
     <!-- Start -->

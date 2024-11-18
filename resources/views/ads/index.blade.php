@@ -3,7 +3,7 @@
         <div class="absolute inset-0 bg-black opacity-80"></div>
         <div class="container relative">
             <div class="grid grid-cols-1 text-center mt-10">
-                <h3 class="font-bold text-white lg:leading-normal leading-normal text-4xl lg:text-5xl mb-6">Easy way to find your <br> dream property</h3>
+                <h3 class="font-bold text-white lg:leading-normal leading-normal text-4xl lg:text-5xl mb-6">Biz sizga xonadoshlar va ijarga uy topishda  <br> yaqindan yordam beramiz</h3>
             </div><!--end grid-->
         </div><!--end container-->
     </section><!--end section-->

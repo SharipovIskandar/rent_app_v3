@@ -22,15 +22,18 @@ class AdController extends Controller
      */
     public function index()
     {
+        $branches = Branch::all();
+        $userId = auth()->id();
 
-            $branches=Branch::all();
-            $userId = auth()->id();
-            $ads = Ad::query()->withCount([
-               'bookmarkedByUsers as bookmarked' => function ($query) use ($userId) {
-                $query->where('user_id', $userId);
-               }
-            ])->get();
-            return view('ads.index' ,compact('branches','ads'));
+        $ads = Ad::query()
+            ->withCount([
+                'bookmarkedByUsers as bookmarked' => function ($query) use ($userId) {
+                    $query->where('user_id', $userId);
+                }
+            ])
+            ->paginate(10);
+
+        return view('ads.index', compact('branches', 'ads'));
     }
 
     /**

@@ -137,6 +137,55 @@
     <section class="relative lg:py-1 py-16">
         <div class="container relative">
             <x-ads :ads="$ads"/>
+            <div class="grid md:grid-cols-12 grid-cols-1 mt-8">
+                <div class="md:col-span-12 text-center">
+                    <nav>
+                        <ul class="inline-flex items-center -space-x-px">
+                            <!-- Left Arrow (Previous Page) -->
+                            <li>
+                                @if ($ads->onFirstPage())
+                                    <a href="#" class="size-10 inline-flex justify-center items-center mx-1 rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-sm dark:shadow-gray-700 hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600 cursor-not-allowed">
+                                        <i class="uil uil-angle-left text-[20px]"></i>
+                                    </a>
+                                @else
+                                    <a href="{{ $ads->previousPageUrl() }}" class="size-10 inline-flex justify-center items-center mx-1 rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-sm dark:shadow-gray-700 hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600">
+                                        <i class="uil uil-angle-left text-[20px]"></i>
+                                    </a>
+                                @endif
+                            </li>
+
+                            <!-- Pagination Numbers -->
+                            @foreach ($ads->links()->elements[0] as $page => $url)
+                                <li>
+                                    @if ($ads->currentPage() == $page)
+                                        <a href="{{ $url }}" aria-current="page" class="z-10 size-10 inline-flex justify-center items-center mx-1 rounded-full text-white bg-green-600 shadow-sm dark:shadow-gray-700">
+                                            {{ $page }}
+                                        </a>
+                                    @else
+                                        <a href="{{ $url }}" class="size-10 inline-flex justify-center items-center mx-1 rounded-full text-slate-400 hover:text-white bg-white dark:bg-slate-900 shadow-sm dark:shadow-gray-700 hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600">
+                                            {{ $page }}
+                                        </a>
+                                    @endif
+                                </li>
+                            @endforeach
+
+                            <!-- Right Arrow (Next Page) -->
+                            <li>
+                                @if ($ads->hasMorePages())
+                                    <a href="{{ $ads->nextPageUrl() }}" class="size-10 inline-flex justify-center items-center mx-1 rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-sm dark:shadow-gray-700 hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600">
+                                        <i class="uil uil-angle-right text-[20px]"></i>
+                                    </a>
+                                @else
+                                    <a href="#" class="size-10 inline-flex justify-center items-center mx-1 rounded-full text-slate-400 bg-white dark:bg-slate-900 hover:text-white shadow-sm dark:shadow-gray-700 hover:border-green-600 dark:hover:border-green-600 hover:bg-green-600 dark:hover:bg-green-600 cursor-not-allowed">
+                                        <i class="uil uil-angle-right text-[20px]"></i>
+                                    </a>
+                                @endif
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div><!--end grid-->
         </div><!--end container-->
     </section><!--end section-->
     <!-- End -->

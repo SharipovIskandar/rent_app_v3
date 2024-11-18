@@ -10,7 +10,7 @@ services:
         networks:
             - app-network
         depends_on:
-            - mysql
+            - rent_db
 
     rent_db:
         container_name: rent_db
@@ -23,7 +23,7 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_PASSWORD: root
         volumes:
-            - ./ticket_db:/var/lib/mysql
+            - ./rent_db:/var/lib/mysql
         networks:
             - app-network
 

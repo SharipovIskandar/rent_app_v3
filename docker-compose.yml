@@ -12,21 +12,20 @@ services:
         depends_on:
             - mysql
 
-    mysql:
-        image: mysql:8.0
-        container_name: mysql
+    rent_db:
+        container_name: rent_db
+        image: mysql:8
         restart: unless-stopped
-        environment:
-            MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: ${DB_DATABASE}
-            MYSQL_USER: ${DB_USERNAME}
-            MYSQL_PASSWORD: root
-        volumes:
-            - mysql_data:/var/lib/mysql
-        networks:
-            - app-network
         ports:
             - "3307:3306"
+        environment:
+            MYSQL_DATABASE: rent_db
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_PASSWORD: root
+        volumes:
+            - ./ticket_db:/var/lib/mysql
+        networks:
+            - app-network
 
     web:
         container_name: rent_web
